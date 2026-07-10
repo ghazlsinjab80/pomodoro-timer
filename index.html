@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍅 Pomodoro Focus Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🍅 Pomodoro Timer</h1>
+        
+        <div class="timer-circle">
+            <div class="timer-display">
+                <span id="minutes">25</span>
+                <span>:</span>
+                <span id="seconds">00</span>
+            </div>
+            <div class="session-label" id="sessionLabel">Focus Time</div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn btn-primary">▶ Start</button>
+            <button id="pauseBtn" class="btn btn-secondary" disabled>⏸ Pause</button>
+            <button id="resetBtn" class="btn btn-danger">⟳ Reset</button>
+        </div>
+
+        <div class="settings">
+            <div class="setting-group">
+                <label for="workDuration">Work (min)</label>
+                <input type="number" id="workDuration" value="25" min="1" max="60">
+            </div>
+            <div class="setting-group">
+                <label for="breakDuration">Break (min)</label>
+                <input type="number" id="breakDuration" value="5" min="1" max="30">
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Sessions Completed</span>
+                <span id="sessionCount">0</span>
+            </div>
+        </div>
+
+        <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

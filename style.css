@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: background 0.3s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+.dark-mode .container {
+    background: rgba(30, 30, 60, 0.95);
+    color: #e0e0e0;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.dark-mode h1 {
+    color: #e0e0e0;
+}
+
+.timer-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 8px solid #667eea;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.timer-display {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #333;
+    font-variant-numeric: tabular-nums;
+}
+
+.dark-mode .timer-display {
+    color: #e0e0e0;
+}
+
+.session-label {
+    font-size: 1.2rem;
+    color: #667eea;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5a67d8;
+}
+
+.btn-secondary {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #38a169;
+}
+
+.btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-danger {
+    background: #fc8181;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #f56565;
+}
+
+.settings {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.setting-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.setting-group label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.dark-mode .setting-group label {
+    color: #aaa;
+}
+
+.setting-group input {
+    width: 70px;
+    padding: 8px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.dark-mode .setting-group input {
+    background: #2a2a4a;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+.setting-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.stats {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.dark-mode .stats {
+    border-top-color: #444;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 1.1rem;
+}
+
+.stat-label {
+    color: #666;
+}
+
+.dark-mode .stat-label {
+    color: #aaa;
+}
+
+.stat-item span:last-child {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.theme-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background: #5a67d8;
+    transform: scale(1.05);
+}
+
+/* Notification Bell Animation */
+@keyframes ring {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-15deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0); }
+}
+
+.ringing {
+    animation: ring 0.5s ease 3;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .timer-circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .timer-display {
+        font-size: 3rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
